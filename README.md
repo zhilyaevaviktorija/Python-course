@@ -17,7 +17,7 @@ __________________
 - Создание продукта
 - Подготовка к собеседованию и финальный проект
 
-[Ссылка на мой GitHub](https://github.com/zhilyaevaviktorija/Python-course.git)
+[Ссылка на мой репозиторий](https://github.com/zhilyaevaviktorija/Python-course.git)
 
 *Пример кода*: `print("Hello, World!")`
 
