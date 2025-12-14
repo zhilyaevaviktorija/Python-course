@@ -28,16 +28,24 @@ print("Имя файла без расширения: " + filename_2)
 # Ожидаемый вывод: "report"
 
 # Задача 4. Поиск телефона
+import re
 text = "Звоните по номеру +7-123-456-78-90 или +7-987-654-32-10"
 # Найдите все номера телефонов (содержат +7-)
+phone_num = re.findall(r'\+\d-\d{3}-\d{3}-\d{2}-\d{2}', text)
+print(phone_num)
 
 # Задача 5. Нормализация текста
 text_1 = "   ЭТОТ ТЕКСТ ПИСАЛИ КАПСОМ    "
 # Приведите к нормальному виду: первая буква заглавная, остальные маленькие
+# Вариант 1
 clean_text_1 = text_1.strip()
 text_1_first_letter = clean_text_1[:1]
 lower_text = clean_text_1[1:].lower()
 print(text_1_first_letter + lower_text)
+# Вариант 2
+text_2 = "   ЭТОТ ТЕКСТ ПИСАЛИ КАПСОМ    "
+normalized_text = text_2.strip().lower().capitalize()
+print(normalized_text)
 # Ожидаемый вывод: "Этот текст писали капсом"
 
 # Задача 6: Подсчет слов
@@ -50,8 +58,14 @@ print(len(words))
 # Задача 7: Замена даты
 text_2 = "Встречаемся 2023-12-31 в 20:00"
 # Замените формат даты на 31.12.2023
+# Вариант 1
 new_text = text_2.replace("2023-12-31", "31.12.2023")
 print(new_text)  # "Встречаемся 31.12.2023 в 20:00"
+# Вариант 2
+import re
+text_3 = "Встречаемся 2023-12-31 в 20:00"
+new_text = re.sub(r'(\d{4})-(\d{2})-(\d{2})', r'\3.\2.\1', text_3)
+print(new_text)
 
 # Задача 8: Валидация имени файла
 filename = "my_document.backup.pdf"
@@ -71,12 +85,5 @@ print(filename_2, domain)
 # Задача 10: Генератор логина
 full_name = "Maria Ivanova"
 # Создайте логин в формате: m_ivanova
-def create_login(name):
-    arr = name.split(" ")
-    name_login = arr[0]
-    surname = arr[1]
-
-    new_name = name_login[:1].lower() + "_" + surname.lower()
-    return new_name
-
-print(create_login(full_name))
+login = full_name[0].lower() + "_" + full_name.split()[1].lower()
+print(login)

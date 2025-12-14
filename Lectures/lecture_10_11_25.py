@@ -15,7 +15,6 @@
     Баллы за тест: 75
     Премиум-доступ: False
 """
-from extra_tasks import length
 
 test_score = 75
 premium = False
